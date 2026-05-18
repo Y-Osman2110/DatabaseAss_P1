@@ -1,67 +1,56 @@
 # DatabaseAss_P1
 This repo for solving database assignment Project 4: The Fitness Club & Personal Training Hub
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                         GYM MANAGEMENT SYSTEM ERD                           │
-└─────────────────────────────────────────────────────────────────────────────┘
+<pre>
+    	┌─────────────────────────────────────────────────────────────────────────────┐
+			│                         GYM MANAGEMENT SYSTEM ERD                           │
+			└─────────────────────────────────────────────────────────────────────────────┘
 
-┌──────────────┐         ┌──────────────┐         ┌──────────────┐
-│   Package    │         │ Subscription │         │   Check-in   │
-├──────────────┤         ├──────────────┤         ├──────────────┤
-│ PK packId    │◄────┐   │ PK subscId   │   ┌────►│ PK checkId   │
-│    packName  │     │   │ FK packId    │───┘     │    timestamp │
-│    packCost  │     └──►│ FK memberId  │◄────────│    location  │
-│    packDuration       │    startDate │         └──────────────┘
-│    packDescription    │    endDate   │
-└──────────────┘         │    status    │◄────────┐
-                         └──────────────┘         │
-                                │ 1:M              │
-                                ▼                  │
-                         ┌──────────────┐         │    ┌──────────────┐
-                         │    Member    │◄─────────┘    │ HealthProfile│
-                         ├──────────────┤    1:1        ├──────────────┤
-                    ┌───►│ PK memberId  │◄─────────────│ PK memberId  │
-                    │    │    memberName│               │    hr_height │
-                    │    │    memberPhone               │    hr_weight │
-                    │    │    memberEmail               │    hr_age    │
-                    │    │    memberAddress             │    hr_description
-                    │    └──────────────┘               └──────────────┘
-                    │           │ 1:M
-                    │           ▼
-                    │    ┌──────────────┐
-                    │    │  Reservation │
-                    │    ├──────────────┤
-                    │    │ PK reservId  │
-                    └───┐│ FK memberId  │
-                        ││ FK sessionId │
-                        ││    reservDate│
-                        │└──────────────┘
-                        │         │ M:1
-                        │         ▼
-                        │  ┌──────────────┐         ┌──────────────┐
-                        │  │    Session   │◄────────│     Zone     │
-                        │  ├──────────────┤  M:1    ├──────────────┤
-                        └──│ PK sessionId │◄────────│ PK zoneId    │
-                           │ FK trainerId │◄──┐     │    zoneNum   │
-                           │    sessionName    │     │    location  │
-                           │    discipline     │     │    timestamp │
-                           │    startTime      │     └──────────────┘
-                           │    endTime        │
-                           │    sessionCapacity│
-                           └──────────────┘
-                                  │ M:1
-                                  ▼
-                           ┌──────────────┐
-                           │    Trainer   │
-                           ├──────────────┤
-                           │ PK trainerId │
-                           │    trainerName
-                           │    trainerSpecialty
-                           │    education
-                           │    description
-                           └──────────────┘
-
+	┌───────────────────┐         ┌──────────────┐     
+	│       Package     │         │ Subscription │         
+	├───────────────────┤   M:1   ├──────────────┤         
+	│ PK packId         │◄───┐    │ PK subscId   │   
+	│    packName       │    └────│ FK packId    │   
+	│    packCost       │    	    │ FK memberId  │
+	│    packDuration   │     	  │    startDate │         
+	│    packDescription│         │    endDate   │
+	└───────────────────┘         │    status    │
+                                └──────────────┘
+								                     │  M:1
+								                     ▼ 
+                   			      ┌──────────────────┐              ┌───────────────────┐
+                        		  │       Member     │              │   HealthProfile   │
+                       			  ├──────────────────┤      1:1     ├───────────────────┤
+   ┌──────────────────────┐   │ PK memberId      │◄─ ─ ─ ─  ┐   │ PK HP_Id          │
+   │        Trainer       │   │    memberName    │   │      └ ─ ┤ FK memberId       │
+   ├──────────────────────┤	  │    memberPhone   │   └────┐     │    HP_height      │
+   │ PK trainerId         │	  │    memberEmail   │    1:M │     │    HP_weight      │
+   │    trainerName       │	  │    memberAddress │        │     │    HP_age         │
+   │    trainerSpecialty  │	  └──────────────────┘        │     │    HP_description │
+   │    trainerDuration   │              │ 1:M             │    └───────────────────┘
+   │    TDescription	    │              ▼                 │       ┌──────────────┐
+   └──────────────────────┘      ┌──────────────┐			     │		   │   Check-in   │
+                    │            │  Reservation │          │       ├──────────────┤
+                    │            ├──────────────┤          │       │ PK checkId   │ 
+                    │            │ PK reservId  │          └───────┤ FK memberId  │                                    
+                    └───┐        │ FK memberId  │                  │    location  │
+                        │        │ FK sessionId │                  │    timestamp │
+                        │        │    reservDate│                  └──────────────┘
+                        │        └──────────────┘
+                        │              │ M:1
+                    1:1 │              ▼
+                        │      ┌────────────────────┐         ┌──────────────┐
+                        │      │       Session      │         │     Zone     │
+                        │      ├────────────────────┤  M:1    ├──────────────┤
+                        │      │ PK sessionId       │    ┌────┤ Pk zoneNum   │
+                        └──────┤ FK trainerId       │    │    │    location  │
+						                   │ FK zoneNum         │◄───┘    │    timestamp │
+                               │    sessionName     │         └──────────────┘
+                               │    discipline      │      
+                               │    startTime       │         
+                               │    endTime         │
+                               │    sessionCapacity │
                                └────────────────────┘
-
+</pre>
 ═══════════════════════════════════════════════════════════════
                             RELATIONSHIP SUMMARY
 ═══════════════════════════════════════════════════════════════
