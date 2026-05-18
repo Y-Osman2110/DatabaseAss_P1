@@ -30,7 +30,7 @@ This repo for solving database assignment Project 4: The Fitness Club & Personal
    └──────────────────────┘      ┌──────────────┐			  │		  │   Check-in   │
                     │            │  Reservation │             │       ├──────────────┤
                     │            ├──────────────┤             │       │ PK checkId   │ 
-                    │            │ PK reservId  │             └───────┤ FK memberId  │                                    
+                    │            │ PK reservId  │             └───────┤ FK memberId  │                     
                     └───┐        │ FK memberId  │                     │    location  │
                         │        │ FK sessionId │                     │    timestamp │
                         │        │    reservDate│                     └──────────────┘
