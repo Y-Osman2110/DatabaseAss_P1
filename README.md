@@ -50,6 +50,9 @@ This repo for solving database assignment Project 4: The Fitness Club & Personal
                                │    endTime         │
                                │    sessionCapacity │
                                └────────────────────┘
+</pre>
+
+<pre>
 
 ═══════════════════════════════════════════════════════════════
                             RELATIONSHIP SUMMARY
@@ -65,12 +68,17 @@ This repo for solving database assignment Project 4: The Fitness Club & Personal
     Session M ────────► 1 Zone
 	
 </pre>
+
+<pre>
 ═══════════════════════════════════════════════════════════════
                                  OVERVIEW
 ═══════════════════════════════════════════════════════════════
 This document describes the Entity Relationship (ER) Diagram for a Gym Management System. The system manages gym members, trainers, packages, 
 sessions, reservations, health profiles, and facility zones.
+</pre>
 
+<pre>
+	
 ═════════════════════════════════════════════════════════════════
                                 REQUIREMENTS
 ══════════════════════════════════════════════════════════════════
@@ -104,3 +112,5 @@ Member to Session: Members can reserve multiple sessions, and each session can h
 Member to Subscription: A member can have multiple subscriptions over time, but each subscription belongs to one member
 Session to Zone: Multiple sessions are held in one dedicated zone (Many-to-One)
 Member to Health Profile: Each member has one unique health profile (One-to-One)
+
+</pre>
