@@ -50,9 +50,9 @@ This repo for solving database assignment Project 4: The Fitness Club & Personal
                                │    sessionCapacity │
                                └────────────────────┘
 
-═══════════════════════════════════════════════════════════════════════════════
+═══════════════════════════════════════════════════════════════
                             RELATIONSHIP SUMMARY
-═══════════════════════════════════════════════════════════════════════════════
+═══════════════════════════════════════════════════════════════
 
     Package 1 ────────► M Subscription
     Subscription M ───► 1 Member
@@ -63,15 +63,15 @@ This repo for solving database assignment Project 4: The Fitness Club & Personal
     Session M ────────► 1 Trainer
     Session M ────────► 1 Zone
 
-═══════════════════════════════════════════════════════════════════════════════
+═══════════════════════════════════════════════════════════════
                                  OVERVIEW
-═══════════════════════════════════════════════════════════════════════════════
+═══════════════════════════════════════════════════════════════
 This document describes the Entity Relationship (ER) Diagram for a Gym Management System. The system manages gym members, trainers, packages, 
 sessions, reservations, health profiles, and facility zones.
 
-═══════════════════════════════════════════════════════════════════════════════
+═════════════════════════════════════════════════════════════════
                                 REQUIREMENTS
-═══════════════════════════════════════════════════════════════════════════════
+══════════════════════════════════════════════════════════════════
 1. Functional Requirements:
 The system must support the following core operations:
 Member & Subscription Management: The system shall manage various tiered subscription packages and handle member enrollments.
